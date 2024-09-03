@@ -2,7 +2,7 @@ let http = require ("http");
 let app = require("./app");
 let port = process.env.PORT || 5000;
 let server = http.createServer(app)
-server.listen(port,hostname()=> {
+server.listen(port,hostname:() => {
   console.log("Server is running on port ${port}")
 });
 
