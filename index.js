@@ -7,25 +7,12 @@ const { env } = require("process");
 //Load the environment
 dotenv.config();
 
-//OpenAI code
-const openai = new OpenAI({
-  apiKey: process.env[Open_AI_API_KEY],
-});
-
-async function main() {
-  const completion = await openai.chat.completions.create({
-    messages: [{ role: "system", content: "You are a helpful assistant." }],
-    model: "gpt-4o",
-  });
-
-  console.log(completion.choices[0]);
-}
-
 //Create the api_end_point
 const app = express();
 app.use(bodyParser.json())
 app.get("/",async (req,res) => {
-  let content = await main();
+  //let content = await main();
+  let content = "I am the response from the API";
   res.send(content);
 });
 
