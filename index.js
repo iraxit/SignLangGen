@@ -7,41 +7,6 @@ server.listen(port,() => {
 });
 
 
-let express = require("express");
-let bodyParser = require("body-parser");
-let dotenv = require("dotenv");
-let OpenAI =require("openai");
-const { env } = require("process");
-
-//Load the environment
-dotenv.config();
-
-//Create the api_end_point
-const app = express();
-app.use(bodyParser.json())
-app.get("/",async (req,res) => {
-  let content = await main();
-  res.send(content);
-});
-
-
-
-//OpenAI code
-const openai = new OpenAI({
-  apiKey: process.env[Open_AI_API_KEY],
-});
-
-async function main() {
-  const completion = await openai.chat.completions.create({
-    messages: [{ role: "system", content: "You are a helpful assistant." }],
-    model: "gpt-4o",
-  });
-
-  console.log(completion.choices[0]);
-}
-
-
-
 //Sample node.js code
 class Person {
   constructor(name, job) {
