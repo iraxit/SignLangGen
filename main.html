@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoking Node.js API</title>
+</head>
+<body>
+    <h1>Image Upload</h1>
+    <input type="file" id="imageUpload" accept="image/*">
+    <button id="uploadButton">Upload</button>
+    <script>
+        const imageUpload = document.getElementById('imageUpload');
+        const uploadButton = document.getElementById('uploadButton');
+        uploadButton.addEventListener('click', () => {
+            const file = imageUpload.files[0];
+            if (file) {
+                // Handle file upload logic here
+                console.log("Selected file:", file); 
+            } else {
+                alert("Please select an image file.");
+            }
+        });
+    </script>
+    
+    <button id="getDataButton">Get Data</button>
+    <div id="result"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
