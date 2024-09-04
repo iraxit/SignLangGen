@@ -14,8 +14,7 @@ dotenv.config();
 
 //Create the api_end_point
 app.get("/",async (req,res) => {
-  //let content = "I am the response from the API";
-  let content = await call_openai();
+  let content = "I am the response from the API";
   res.send(content);
 });
 
@@ -23,6 +22,7 @@ let port = process.env.PORT;
 app.listen(port,()=> {
   console.log(`Server is running on port ${port}`);
 });
+
 
 //OpenAI code
 const openai = new OpenAI({
@@ -37,6 +37,17 @@ async function call_openai() {
 
   console.log(completion.choices[0]);
 }
+
+//Create the openai_api_end_point
+app.get("/queryai",async (req,res) => {
+  let content = await call_openai();
+  res.send(content);
+});
+
+let port = process.env.PORT;
+app.listen(port,()=> {
+  console.log(`Server is running on port ${port}`);
+});
 
 
 
