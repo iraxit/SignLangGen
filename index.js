@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 app.use(bodyParser.json())
 app.get("/",async (req,res) => {
-  let content = "I am the response from the API";
+  //let content = "I am the response from the API";
   let content = await main();
   res.send(content);
 });
