@@ -11,18 +11,29 @@ dotenv.config();
 const app = express();
 app.use(bodyParser.json())
 app.get("/",async (req,res) => {
-  //let content = await main();
   let content = "I am the response from the API";
+  let content = await main();
   res.send(content);
 });
-
-console.log(process.env.PORT);
 
 let port = process.env.PORT;
 app.listen(port,()=> {
   console.log(`Server is running on port ${port}`);
 });
 
+//OpenAI code
+const openai = new OpenAI({
+  apiKey: process.env[Open_AI_API_KEY],
+});
+
+async function main() {
+  const completion = await openai.chat.completions.create({
+    messages: [{ role: "system", content: "You are a helpful assistant." }],
+    model: "gpt-4o",
+  });
+
+  console.log(completion.choices[0]);
+}
 
 
 
