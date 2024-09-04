@@ -44,7 +44,6 @@ app.get("/queryai",async (req,res) => {
   res.send(content);
 });
 
-let port = process.env.PORT;
 app.listen(port,()=> {
   console.log(`Server is running on port ${port}`);
 });
