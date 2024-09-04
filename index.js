@@ -23,7 +23,7 @@ app.listen(port,()=> {
 
 //OpenAI code
 const openai = new OpenAI({
-  apiKey: process.env[Open_AI_API_KEY],
+  apiKey: process.env.Open_AI_API_KEY,
 });
 
 async function main() {
