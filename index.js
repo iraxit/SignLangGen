@@ -2,7 +2,7 @@ let express = require("express");
 let bodyParser = require("body-parser");
 let dotenv = require("dotenv");
 let OpenAI =require("openai");
-const { env } = require("process");
+//const { env } = require("process");
 
 //Load the environment
 dotenv.config();
