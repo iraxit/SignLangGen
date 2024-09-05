@@ -39,9 +39,7 @@ function uploadFiles(req, res) {
     console.log(req.files);
     res.json({ message: "Successfully uploaded files" });
 }
-app.listen(port,()=> {
-    console.log(`Server started...`);
-});
+
 
 
 
