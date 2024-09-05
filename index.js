@@ -2,7 +2,6 @@ let express = require("express");
 let bodyParser = require("body-parser");
 let dotenv = require("dotenv");
 const cors = require('cors');
-app.use(cors());
 
 let OpenAI =require("openai");
 //const { env } = require("process");
@@ -10,6 +9,7 @@ let OpenAI =require("openai");
 
 //Start the web framework express.js
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 
 //Load the environment
