@@ -7,6 +7,7 @@ app.use(cors());
 let OpenAI =require("openai");
 //const { env } = require("process");
 
+
 //Start the web framework express.js
 const app = express();
 app.use(bodyParser.json());
@@ -25,6 +26,19 @@ let port = process.env.PORT;
 app.listen(port,()=> {
   console.log(`Server is running on port ${port}`);
 });
+
+//upload path
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.post("/upload_files", uploadFiles);
+function uploadFiles(req, res) {
+    console.log(req.body);
+}
+app.listen(5000, () => {
+    console.log(`Server started...`);
+});
+
 
 //OpenAI code
 const openai = new OpenAI({
